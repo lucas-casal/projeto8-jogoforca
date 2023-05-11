@@ -1,9 +1,10 @@
 //conjunto de botões com as letras
 import { useState } from "react"
-
+export const lettersSelected = [];
 export default function Letras(){
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     let [selected, setSelected] = useState(false)
+
 
     return(
         <div id="letters-container">
@@ -14,6 +15,8 @@ export default function Letras(){
                 const clicada = document.getElementById(letter)
                 clicada.setAttribute("disabled", true)
                 clicada.className += " selected"
+                lettersSelected.push(letter);
+                console.log(lettersSelected);
             }
 
             return (
@@ -27,5 +30,4 @@ export default function Letras(){
     )
 
 }
-
 
