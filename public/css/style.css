@@ -1,0 +1,45 @@
+#root{
+    position: relative;
+    width: 1025px;
+    height: 839px;
+    background-color: aqua;
+}
+
+#hanging{
+    position:absolute;
+    top: 59px;
+    left: 38px;
+    width: 400px;
+}
+
+#start-btn{
+    position: absolute;
+    top: 89px;
+    right: 53px;
+    width: 200px;
+    height: 60px;
+    background-color: #27AE60;
+    color: #FFFFFF;
+    font-family: 'roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height:23.44px;
+    border-radius: 8px;
+}
+
+#letters-container{
+    position:absolute;
+    top: 596px;
+    left: 211px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 664px;
+    height:auto;
+    gap: 12px;
+}
+
+.letter-btn{
+    width: 40px;
+    height: 40px;
+}
