@@ -2,7 +2,7 @@
     position: relative;
     width: 1025px;
     height: 839px;
-    background-color: aqua;
+
 }
 
 #hanging{
@@ -53,6 +53,15 @@
 .letter-btn{
     width: 40px;
     height: 40px;
+    color: #39739D;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #E1ECF4;
+
 }
 
 #word-space{
@@ -69,4 +78,51 @@
     text-align: center;
     padding: 0 12px 0 12px;
 
+}
+
+#bonus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 56px;
+    left: 231px;
+    width: 624px;
+    height: 40px;
+    gap: 12px;
+}
+
+#answer{
+    width: 353px;
+    height: 38px;
+
+}
+
+#chute-phrase{
+width: 144px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 23px;
+display: flex;
+justify-content: center;
+
+
+color: #000000;
+}
+
+#send-answer{
+    width: 100px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E1ECF4;
+    color: #3C76A1;
 }

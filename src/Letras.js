@@ -14,7 +14,7 @@ export default function Letras(props){
         <div id="letters-container">
         {alfabeto.map((x) =>     
         
-        <button id={x} key={x} onClick={props.onClick} className={props.Class}  disabled={props.begin || props.selectedLetters.includes(x)}>
+        <button id={x} key={x} onClick={props.onClick} className={props.Class}  disabled={props.begin || props.selectedLetters.includes(x)} data-test="letter">
         {x.toUpperCase()}
         </button>)}
         

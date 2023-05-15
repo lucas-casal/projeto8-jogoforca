@@ -3,23 +3,23 @@ import { useState } from 'react';
 import Jogo from "./Jogo"
 import Letras from "./Letras"
 import palavras from "./palavras"
+import Chute from './Chute';
 
 let diferenca = 0;
 
 
 export default function App() {
-
+    const [valor, setValor] = useState('');
     const lettersSelected = [];
     let [selectedLetters, setSelectedLetters] = useState(lettersSelected);
-    let [certas, setCertas] = useState([])
-
+    let [end, setEnd] = useState(false);
     let [print, setPrint] = useState([])
     const [Class, setClass] = useState("letter-btn");
-    let randomNmbr = Math.floor(Math.random() * 20)
+    let randomNmbr = Math.floor(Math.random() * 188)
 
     const newWord = [];
     let [word, setWord] = useState(palavras[randomNmbr])
-    let wordClass = ""
+    let [wordClass, setWordClass] = useState("")
     let array = []
 
     const [begin, setBegin] = useState(true);
@@ -27,14 +27,17 @@ export default function App() {
     let [fails, setFails] = useState("");
 
     let [img, setImg] = useState("./assets/forca0.png")
-
+    let avaliacao = "";
+    let fim = false;
 
     function StartBtn() {
+        fim = false;
         diferenca = 0;
-        let certas = [];
         setImg("./assets/forca0.png")
         setSelectedLetters([])
         setBegin(false)
+        setWordClass("")
+        setEnd(false)
         newWord.push(palavras[randomNmbr])
         setFails(0);
         setPrint([]);
@@ -73,8 +76,7 @@ export default function App() {
             if (troca){
                 print.splice(i, 1, x) 
                 const letter = x;
-                const novoArray = [...certas, x];
-                setCertas(novoArray)
+
             } else{
                 fail++
             }
@@ -90,12 +92,6 @@ export default function App() {
         console.log(diferenca)
         errors(diferenca);
     }
-
-    console.log(selectedLetters);
-    console.log(certas)
-    
-    const certasSemRepetir = certas.filter((este, i) => {
-        return certas.indexOf(este) === i;});
 
     function errors(diferenca){
     console.log(diferenca)
@@ -117,19 +113,48 @@ export default function App() {
 }
 
 
-if (print.join("") === word){
+    if (print.join("") === word){
         wordClass = "correct"
-        
+        fim = true;
     } else if (diferenca === 6){
-    wordClass = "incorrect"
+        wordClass = "incorrect"
+        fim = true
     }
 
+    const handleChange = (event) => {
+        setValor(event.target.value);
+    };
 
 
+
+    function sendAnswer(){
+        setEnd(true)
+        console.log(valor)
+        console.log(word)
+        if (valor === word){
+            avaliacao = "correct"
+        } else {
+            avaliacao = "incorrect"
+            setImg("./assets/forca6.png")
+        }
+        setWordClass(avaliacao)
+        setValor("")
+    }
+    
+    if (end){
+        avaliacao = word;
+    } else if (diferenca<6){
+        avaliacao = print;
+    } else{
+        avaliacao = word
+    }
+    
+    console.log(end)
     return (
         <>
-            <Jogo StartBtn={StartBtn} img={img} wordClass={wordClass} print={diferenca<6 ? print : word} />
-            <Letras Class={Class} selectedLetters={selectedLetters} onClick={selectLetter} begin={begin} />
+            <Jogo StartBtn={StartBtn} img={img} wordClass={wordClass} print={avaliacao} />
+            <Letras Class={Class} selectedLetters={selectedLetters} onClick={selectLetter} begin={begin ? true: fim ? true : end ? true : false} />
+            <Chute valor={valor} handleChange={handleChange} onClick={sendAnswer} end={begin ? true : end ? true: fim ? true : false}/>
         </>
     )
 }
