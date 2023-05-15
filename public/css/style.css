@@ -37,6 +37,9 @@
     color: red;
 }
 
+:disabled{
+   background-color: #9FAAB5;
+}
 
 #letters-container{
     position:absolute;
@@ -60,8 +63,10 @@
     line-height: 19px;
     letter-spacing: 0em;
     text-align: center;
-    background-color: #E1ECF4;
+}
 
+button{
+    background-color: #E1ECF4;
 }
 
 #word-space{
