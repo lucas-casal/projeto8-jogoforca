@@ -26,6 +26,17 @@
     line-height:23.44px;
     border-radius: 8px;
 }
+.invisible{
+    opacity: 0;
+}
+
+.correct{
+    color: #27AE60;
+}
+.incorrect{
+    color: red;
+}
+
 
 #letters-container{
     position:absolute;
@@ -48,15 +59,14 @@
     position: absolute;
     top: 431px;
     right: 61px;
-    width: 323px;
+    min-width: 323px;
     height: 68px;
-    background-color: #27AE60;
-    color: black;
     font-family: Noto Sans;
     font-size: 50px;
     font-weight: 700;
     line-height: 68px;
     letter-spacing: 0em;
     text-align: center;
+    padding: 0 12px 0 12px;
 
 }
